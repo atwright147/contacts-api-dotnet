@@ -15,7 +15,7 @@ dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 ## Generate a Controller
 
 ```sh
-❯ dotnet aspnet-codegenerator controller -name ContactsController -async -api -m Contact -dc ApplicationDbContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name ContactsController -async -api -m Contact -dc ApplicationDbContext -outDir Controllers
 ```
 
 ## Migrations
