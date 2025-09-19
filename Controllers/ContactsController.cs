@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using contacts_api_dotnet.Data;
-using contacts_api_dotnet.Models;
+using contacts_api.Data;
+using contacts_api.Models;
 
-namespace contacts_api_dotnet.Controllers
+namespace contacts_api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

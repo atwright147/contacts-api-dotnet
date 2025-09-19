@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace contacts_api_dotnet.Migrations
+namespace contacts_api.Migrations
 {
   /// <inheritdoc />
   public partial class InitialCreate : Migration

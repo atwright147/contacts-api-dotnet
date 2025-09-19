@@ -1,4 +1,4 @@
-namespace contacts_api_dotnet.Models
+namespace contacts_api.Models
 {
     public class Contact
     {

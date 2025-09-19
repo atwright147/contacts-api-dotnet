@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using contacts_api_dotnet.Models;
+using contacts_api.Models;
 
-namespace contacts_api_dotnet.Data
+namespace contacts_api.Data
 {
     public class ApplicationDbContext : DbContext
     {

@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using contacts_api_dotnet.Data;
+using contacts_api.Data;
 
 #nullable disable
 
-namespace contacts_api_dotnet.Migrations
+namespace contacts_api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20250919164632_InitialCreate")]
@@ -19,7 +19,7 @@ namespace contacts_api_dotnet.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.9");
 
-            modelBuilder.Entity("contacts_api_dotnet.Models.Contact", b =>
+            modelBuilder.Entity("contacts_api.Models.Contact", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
