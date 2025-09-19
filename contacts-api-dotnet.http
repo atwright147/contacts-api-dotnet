@@ -6,3 +6,8 @@ GET {{contacts_api_dotnet_HostAddress}}/api/Contacts/
 Accept: application/json
 
 ###
+
+GET {{contacts_api_dotnet_HostAddress}}/api/Contacts/1
+Accept: application/json
+
+###
