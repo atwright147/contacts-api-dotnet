@@ -5,7 +5,7 @@ Accept: application/json
 
 ###
 
-GET {{contacts_api_dotnet_HostAddress}}/Contacts/
+GET {{contacts_api_dotnet_HostAddress}}/api/Contacts/
 Accept: application/json
 
 ###
