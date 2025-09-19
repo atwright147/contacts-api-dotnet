@@ -18,6 +18,20 @@ dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 ❯ dotnet aspnet-codegenerator controller -name ContactsController -async -api -m Contact -dc ApplicationDbContext -outDir Controllers
 ```
 
+## Migrations
+
+### Generate
+
+```sh
+dotnet ef migrations add {NameOfMigration}
+```
+
+### Apply
+
+```sh
+dotnet ef database update
+```
+
 ## Useful docs
 
 - https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-9.0&tabs=visual-studio-code
