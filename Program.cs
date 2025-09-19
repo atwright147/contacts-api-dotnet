@@ -29,12 +29,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();

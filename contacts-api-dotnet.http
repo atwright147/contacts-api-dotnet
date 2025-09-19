@@ -1,8 +1,5 @@
 @contacts_api_dotnet_HostAddress = http://localhost:5077
 
-GET {{contacts_api_dotnet_HostAddress}}/weatherforecast/
-Accept: application/json
-
 ###
 
 GET {{contacts_api_dotnet_HostAddress}}/api/Contacts/
