@@ -30,7 +30,7 @@ namespace contacts_api_dotnet.Controllers
 
         // GET: api/Contacts/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Contact>> GetContact(int id)
+        public async Task<ActionResult<ContactWithFullName>> GetContact(int id)
         {
             var contact = await _context.Contacts.FindAsync(id);
 
@@ -39,7 +39,16 @@ namespace contacts_api_dotnet.Controllers
                 return NotFound();
             }
 
-            return contact;
+            var contactWithFullname = new ContactWithFullName
+            {
+                Id = contact.Id,
+                FirstName = contact.FirstName,
+                LastName = contact.LastName,
+                Email = contact.Email,
+                FullName = $"{contact.FirstName} {contact.LastName}"
+            };
+
+            return contactWithFullname;
         }
 
         // PUT: api/Contacts/5

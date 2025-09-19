@@ -7,4 +7,9 @@ namespace contacts_api_dotnet.Models
         public required string LastName { get; set; }
         public required string Email { get; set; }
     }
+
+    public class ContactWithFullName : Contact
+    {
+        public string FullName { get; set; } = string.Empty;
+    }
 }
