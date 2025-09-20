@@ -10,5 +10,12 @@ namespace contacts_api.Data
         }
 
         public DbSet<Contact> Contacts { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Seed data is handled in Program.cs to avoid migration conflicts
+        }
     }
 }
