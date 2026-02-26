@@ -9,39 +9,39 @@ using contacts_api.Data;
 
 namespace contacts_api.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250919164632_InitialCreate")]
-    partial class InitialCreate
+  [DbContext(typeof(ApplicationDbContext))]
+  [Migration("20250919164632_InitialCreate")]
+  partial class InitialCreate
+  {
+    /// <inheritdoc />
+    protected override void BuildTargetModel(ModelBuilder modelBuilder)
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
-        {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.9");
+      modelBuilder.HasAnnotation("ProductVersion", "9.0.9");
 
-            modelBuilder.Entity("contacts_api.Models.Contact", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+      modelBuilder.Entity("contacts_api.Models.Contact", b =>
+          {
+            b.Property<int>("Id")
+                      .ValueGeneratedOnAdd()
+                      .HasColumnType("INTEGER");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+            b.Property<string>("Email")
+                      .IsRequired()
+                      .HasColumnType("TEXT");
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+            b.Property<string>("FirstName")
+                      .IsRequired()
+                      .HasColumnType("TEXT");
 
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+            b.Property<string>("LastName")
+                      .IsRequired()
+                      .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+            b.HasKey("Id");
 
-                    b.ToTable("Contacts");
-                });
+            b.ToTable("Contacts");
+          });
 #pragma warning restore 612, 618
-        }
     }
+  }
 }
