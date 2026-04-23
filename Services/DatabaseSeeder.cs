@@ -36,9 +36,9 @@ namespace contacts_api.Services
                 Country = "USA"
               }
             },
-            TelephoneNumbers = new List<TelephoneNumber>
+            PhoneNumbers = new List<PhoneNumber>
             {
-              new TelephoneNumber
+              new PhoneNumber
               {
                 Number = "+1-512-555-0101",
                 Type = "mobile"
@@ -62,9 +62,9 @@ namespace contacts_api.Services
                 Country = "USA"
               }
             },
-            TelephoneNumbers = new List<TelephoneNumber>
+            PhoneNumbers = new List<PhoneNumber>
             {
-              new TelephoneNumber
+              new PhoneNumber
               {
                 Number = "+1-214-555-0102",
                 Type = "home"
@@ -87,9 +87,9 @@ namespace contacts_api.Services
                 Country = "USA"
               }
             },
-            TelephoneNumbers = new List<TelephoneNumber>
+            PhoneNumbers = new List<PhoneNumber>
             {
-              new TelephoneNumber
+              new PhoneNumber
               {
                 Number = "+1-713-555-0103",
                 Type = "work"
@@ -112,9 +112,9 @@ namespace contacts_api.Services
                 Country = "USA"
               }
             },
-            TelephoneNumbers = new List<TelephoneNumber>
+            PhoneNumbers = new List<PhoneNumber>
             {
-              new TelephoneNumber
+              new PhoneNumber
               {
                 Number = "+1-210-555-0104",
                 Type = "mobile"
@@ -137,9 +137,9 @@ namespace contacts_api.Services
                 Country = "USA"
               }
             },
-            TelephoneNumbers = new List<TelephoneNumber>
+            PhoneNumbers = new List<PhoneNumber>
             {
-              new TelephoneNumber
+              new PhoneNumber
               {
                 Number = "+1-817-555-0105",
                 Type = "home"

@@ -7,7 +7,7 @@ namespace contacts_api.Models
     public required string LastName { get; set; }
     public required string Email { get; set; }
     public ICollection<Address> Addresses { get; set; } = new List<Address>();
-    public ICollection<TelephoneNumber> TelephoneNumbers { get; set; } = new List<TelephoneNumber>();
+    public ICollection<PhoneNumber> PhoneNumbers { get; set; } = new List<PhoneNumber>();
   }
 
   public class Address
@@ -22,7 +22,7 @@ namespace contacts_api.Models
     public int ContactId { get; set; }
   }
 
-  public class TelephoneNumber
+  public class PhoneNumber
   {
     public int Id { get; set; }
     public required string Number { get; set; }

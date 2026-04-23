@@ -15,7 +15,7 @@ namespace contacts_api.Controllers
     {
       return await context.Contacts
           .Include(c => c.Addresses)
-          .Include(c => c.TelephoneNumbers)
+          .Include(c => c.PhoneNumbers)
           .ToListAsync();
     }
 
@@ -25,7 +25,7 @@ namespace contacts_api.Controllers
     {
       var contact = await context.Contacts
           .Include(c => c.Addresses)
-          .Include(c => c.TelephoneNumbers)
+          .Include(c => c.PhoneNumbers)
           .FirstOrDefaultAsync(c => c.Id == id);
 
       if (contact == null)
@@ -40,7 +40,7 @@ namespace contacts_api.Controllers
         LastName = contact.LastName,
         Email = contact.Email,
         Addresses = contact.Addresses,
-        TelephoneNumbers = contact.TelephoneNumbers,
+        PhoneNumbers = contact.PhoneNumbers,
         FullName = $"{contact.FirstName} {contact.LastName}"
       };
 
@@ -59,7 +59,7 @@ namespace contacts_api.Controllers
 
       var existingContact = await context.Contacts
           .Include(c => c.Addresses)
-          .Include(c => c.TelephoneNumbers)
+          .Include(c => c.PhoneNumbers)
           .FirstOrDefaultAsync(c => c.Id == id);
 
       if (existingContact == null)
@@ -72,7 +72,7 @@ namespace contacts_api.Controllers
       existingContact.Email = contact.Email;
 
       context.Addresses.RemoveRange(existingContact.Addresses);
-      context.TelephoneNumbers.RemoveRange(existingContact.TelephoneNumbers);
+      context.PhoneNumbers.RemoveRange(existingContact.PhoneNumbers);
 
       existingContact.Addresses = (contact.Addresses ?? new List<Address>())
           .Select(a => new Address
@@ -86,8 +86,8 @@ namespace contacts_api.Controllers
           })
           .ToList();
 
-      existingContact.TelephoneNumbers = (contact.TelephoneNumbers ?? new List<TelephoneNumber>())
-          .Select(t => new TelephoneNumber
+      existingContact.PhoneNumbers = (contact.PhoneNumbers ?? new List<PhoneNumber>())
+          .Select(t => new PhoneNumber
           {
             Number = t.Number,
             Type = t.Type
@@ -115,7 +115,7 @@ namespace contacts_api.Controllers
     public async Task<ActionResult<Contact>> PostContact(Contact contact)
     {
       contact.Addresses ??= new List<Address>();
-      contact.TelephoneNumbers ??= new List<TelephoneNumber>();
+      contact.PhoneNumbers ??= new List<PhoneNumber>();
 
       context.Contacts.Add(contact);
       await context.SaveChangesAsync();

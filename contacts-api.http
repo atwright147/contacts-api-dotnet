@@ -29,7 +29,7 @@ Content-Type: application/json
 			"country": "USA"
 		}
 	],
-	"telephoneNumbers": [
+	"phoneNumbers": [
 		{
 			"number": "+1-512-555-0111",
 			"type": "mobile"
@@ -60,7 +60,7 @@ Content-Type: application/json
 			"country": "USA"
 		}
 	],
-	"telephoneNumbers": [
+	"phoneNumbers": [
 		{
 			"number": "+1-214-555-0188",
 			"type": "home"

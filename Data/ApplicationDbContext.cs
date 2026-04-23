@@ -11,7 +11,7 @@ namespace contacts_api.Data
 
     public DbSet<Contact> Contacts { get; set; }
     public DbSet<Address> Addresses { get; set; }
-    public DbSet<TelephoneNumber> TelephoneNumbers { get; set; }
+    public DbSet<PhoneNumber> PhoneNumbers { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -24,7 +24,7 @@ namespace contacts_api.Data
         .OnDelete(DeleteBehavior.Cascade);
 
       modelBuilder.Entity<Contact>()
-        .HasMany(c => c.TelephoneNumbers)
+        .HasMany(c => c.PhoneNumbers)
         .WithOne()
         .HasForeignKey(t => t.ContactId)
         .OnDelete(DeleteBehavior.Cascade);
