@@ -6,6 +6,9 @@ namespace contacts_api.Models
     public required string FirstName { get; set; }
     public required string LastName { get; set; }
     public required string Email { get; set; }
+    public bool IsFavorite { get; set; } = false;
+    public int PrimaryAddressId { get; set; }
+    public int PrimaryPhoneNumberId { get; set; }
     public ICollection<Address> Addresses { get; set; } = new List<Address>();
     public ICollection<PhoneNumber> PhoneNumbers { get; set; } = new List<PhoneNumber>();
   }

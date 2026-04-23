@@ -39,6 +39,11 @@ namespace contacts_api.Controllers
         FirstName = contact.FirstName,
         LastName = contact.LastName,
         Email = contact.Email,
+        IsFavorite = contact.IsFavorite,
+
+        PrimaryAddressId = contact.PrimaryAddressId,
+        PrimaryPhoneNumberId = contact.PrimaryPhoneNumberId,
+
         Addresses = contact.Addresses,
         PhoneNumbers = contact.PhoneNumbers,
         FullName = $"{contact.FirstName} {contact.LastName}"
@@ -70,6 +75,10 @@ namespace contacts_api.Controllers
       existingContact.FirstName = contact.FirstName;
       existingContact.LastName = contact.LastName;
       existingContact.Email = contact.Email;
+      existingContact.IsFavorite = contact.IsFavorite;
+
+      existingContact.PrimaryAddressId = contact.PrimaryAddressId;
+      existingContact.PrimaryPhoneNumberId = contact.PrimaryPhoneNumberId;
 
       context.Addresses.RemoveRange(existingContact.Addresses);
       context.PhoneNumbers.RemoveRange(existingContact.PhoneNumbers);
@@ -90,7 +99,7 @@ namespace contacts_api.Controllers
           .Select(t => new PhoneNumber
           {
             Number = t.Number,
-            Type = t.Type
+            Type = t.Type,
           })
           .ToList();
 

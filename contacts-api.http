@@ -19,6 +19,9 @@ Content-Type: application/json
 	"firstName": "Emily",
 	"lastName": "Taylor",
 	"email": "emily.taylor@example.com",
+  "isFavorite": true,
+  "primaryAddressId": 1,
+  "primaryPhoneNumberId": 1,
 	"addresses": [
 		{
 			"line1": "123 Main St",
@@ -51,6 +54,9 @@ Content-Type: application/json
 	"firstName": "John",
 	"lastName": "Doe",
 	"email": "john.doe@example.com",
+  "isFavorite": true,
+  "primaryAddressId": 1,
+  "primaryPhoneNumberId": 1,
 	"addresses": [
 		{
 			"line1": "456 Oak Ave",
