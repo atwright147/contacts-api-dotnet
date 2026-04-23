@@ -11,3 +11,61 @@ GET {{contacts_api_HostAddress}}/api/Contacts/1
 Accept: application/json
 
 ###
+
+POST {{contacts_api_HostAddress}}/api/Contacts/
+Content-Type: application/json
+
+{
+	"firstName": "Emily",
+	"lastName": "Taylor",
+	"email": "emily.taylor@example.com",
+	"addresses": [
+		{
+			"line1": "123 Main St",
+			"line2": "Apt 4B",
+			"city": "Austin",
+			"state": "TX",
+			"postalCode": "78701",
+			"country": "USA"
+		}
+	],
+	"telephoneNumbers": [
+		{
+			"number": "+1-512-555-0111",
+			"type": "mobile"
+		},
+		{
+			"number": "+1-512-555-0142",
+			"type": "work"
+		}
+	]
+}
+
+###
+
+PUT {{contacts_api_HostAddress}}/api/Contacts/1
+Content-Type: application/json
+
+{
+	"id": 1,
+	"firstName": "John",
+	"lastName": "Doe",
+	"email": "john.doe@example.com",
+	"addresses": [
+		{
+			"line1": "456 Oak Ave",
+			"city": "Dallas",
+			"state": "TX",
+			"postalCode": "75001",
+			"country": "USA"
+		}
+	],
+	"telephoneNumbers": [
+		{
+			"number": "+1-214-555-0188",
+			"type": "home"
+		}
+	]
+}
+
+###
