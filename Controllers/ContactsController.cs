@@ -39,8 +39,9 @@ namespace contacts_api.Controllers
         FirstName = contact.FirstName,
         LastName = contact.LastName,
         Email = contact.Email,
-        IsFavorite = contact.IsFavorite,
+        DateOfBirth = contact.DateOfBirth,
 
+        IsFavorite = contact.IsFavorite,
         PrimaryAddressId = contact.PrimaryAddressId,
         PrimaryPhoneNumberId = contact.PrimaryPhoneNumberId,
 
@@ -75,8 +76,9 @@ namespace contacts_api.Controllers
       existingContact.FirstName = contact.FirstName;
       existingContact.LastName = contact.LastName;
       existingContact.Email = contact.Email;
-      existingContact.IsFavorite = contact.IsFavorite;
+      existingContact.DateOfBirth = contact.DateOfBirth;
 
+      existingContact.IsFavorite = contact.IsFavorite;
       existingContact.PrimaryAddressId = contact.PrimaryAddressId;
       existingContact.PrimaryPhoneNumberId = contact.PrimaryPhoneNumberId;
 

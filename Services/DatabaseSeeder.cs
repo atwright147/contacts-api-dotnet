@@ -26,6 +26,7 @@ namespace contacts_api.Services
             FirstName = "John",
             LastName = "Doe",
             Email = "john.doe@example.com",
+            DateOfBirth = new DateOnly(2000, 1, 1),
             Addresses = new List<Address>
             {
               new Address
