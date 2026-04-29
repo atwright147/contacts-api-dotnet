@@ -1,5 +1,15 @@
 # Contacts API (.net)
 
+## Run
+
+```sh
+dotnet restore
+dotnet run --project contacts-api.csproj
+```
+
+Once it starts, look for a line like:
+Now listening on: http://localhost:xxxx or https://localhost:xxxx
+
 ## .gitignore
 
 ```sh
