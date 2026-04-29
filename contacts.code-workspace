@@ -17,6 +17,9 @@
 		"files.exclude": {
       "be-*": true,
 			"fe-*": true,
-		},
+    },
+    "css.lint.unknownAtRules": "ignore",
+    "scss.lint.unknownAtRules": "ignore",
+    "less.lint.unknownAtRules": "ignore"
   }
 }
