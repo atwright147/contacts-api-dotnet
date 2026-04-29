@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": ".",
+      "name": "root",
+		},
+    {
+      "path": "be-dotnet",
+      "name": "BE Dotnet",
+    },
+    {
+      "path": "fe-svelte",
+      "name": "FE Svelte",
+    },
+	],
+	"settings": {
+		"files.exclude": {
+      "be-*": true,
+			"fe-*": true,
+		},
+  }
+}
