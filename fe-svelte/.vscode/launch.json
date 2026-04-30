@@ -1,0 +1,20 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Svelte: Debug in Chrome (server already running)",
+			"type": "chrome",
+			"request": "launch",
+			"url": "http://localhost:5173",
+			"webRoot": "${workspaceFolder}/src"
+		},
+		{
+			"name": "Svelte: Debug in Chrome (start dev server)",
+			"type": "chrome",
+			"request": "launch",
+			"url": "http://localhost:5173",
+			"webRoot": "${workspaceFolder}/src",
+			"preLaunchTask": "vite: dev"
+		}
+	]
+}
