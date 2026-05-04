@@ -2,11 +2,14 @@
 	import { createQuery } from '@tanstack/svelte-query';
 
 	const query = createQuery(() => ({
-    queryKey: ['todos'],
-    queryFn: () => fetch('https://jsonplaceholder.typicode.com/todos').then(res => res.json()),
-  }))
+    queryKey: ['contacts'],
+    queryFn: () => fetch('https://localhost:7053/api/Contacts').then(res => res.json()),
+  }));
 </script>
 
 <h1>Contacts</h1>
 
-<pre>{JSON.stringify(query.data, null, 2)}</pre>
+<details>
+	<summary>Raw Data</summary>
+	<pre>{JSON.stringify(query.data, null, 2)}</pre>
+</details>
