@@ -2,10 +2,9 @@
 	import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
 	import { SvelteQueryDevtools } from '@tanstack/svelte-query-devtools';
 
-	const queryClient = new QueryClient()
+	const queryClient = new QueryClient();
 
 	import { page } from '$app/state';
-	import { AppBar, AppLayout, NavItem } from 'svelte-ux';
 
 	import favicon from '$lib/assets/favicon.svg';
 	import "../app.css";
@@ -18,33 +17,20 @@
 </svelte:head>
 
 <QueryClientProvider client={queryClient}>
-	<AppLayout>
-		<svelte:fragment slot="nav">
-			<NavItem
-				text="Home"
-				currentUrl={page.url}
-				path="/"
-				classes={{ root: "pl-3", active: "bg-primary/10 text-primary" }}
-			/>
-			<NavItem
-				text="About"
-				currentUrl={page.url}
-				path="/about"
-				classes={{ root: "pl-3", active: "bg-primary/10 text-primary" }}
-			/>
-			<NavItem
-				text="Contacts"
-				currentUrl={page.url}
-				path="/contacts"
-				classes={{ root: "pl-3", active: "bg-primary/10 text-primary" }}
-			/>
-		</svelte:fragment>
+	<div>
+		<header>
+			<h1>Example</h1>
+			<nav>
+				<a href="/" class={page.url.pathname === '/' ? 'active' : ''}>Home</a>
+				<a href="/about" class={page.url.pathname.startsWith('/about') ? 'active' : ''}>About</a>
+				<a href="/contacts" class={page.url.pathname.startsWith('/contacts') ? 'active' : ''}>Contacts</a>
+			</nav>
+		</header>
 
-		<AppBar title="Example" />
 		<main>
 			{@render children()}
 		</main>
-	</AppLayout>
+	</div>
 
-  <SvelteQueryDevtools />
+	<SvelteQueryDevtools />
 </QueryClientProvider>
