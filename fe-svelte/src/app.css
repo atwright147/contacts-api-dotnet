@@ -1,1 +1,4 @@
-/* Tailwind directives removed to keep the app minimally styled. */
+html,
+body {
+	@apply h-full overflow-hidden;
+}

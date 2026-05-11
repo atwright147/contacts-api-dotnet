@@ -12,7 +12,7 @@
   }));
 </script>
 
-<h1>Contacts</h1>
+<h1 class="h1">Contacts</h1>
 
 {#if query.isPending}
   Loading...

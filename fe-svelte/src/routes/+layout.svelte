@@ -28,6 +28,8 @@
 	const activeClass = (targetPath: string) => (isRouteActive(targetPath) ? 'active' : '');
 	const ariaCurrent = (targetPath: string) => (isRouteActive(targetPath) ? 'page' : undefined);
 
+	const iconSize = 20;
+
 	let { children } = $props();
 </script>
 
@@ -36,43 +38,44 @@
 </svelte:head>
 
 <QueryClientProvider client={queryClient}>
-	<div>
-		<header>
+	<div class="grid h-screen grid-rows-[auto_1fr] grid-cols-[min-content_1fr]">
+		<header class="col-span-full">
 			<AppBar>
-				<h2 class="h2">My App</h2>
+				<p class="h2">My App</p>
 			</AppBar>
 		</header>
 
-		<aside class="hidden md:block">
-			<Navigation layout="rail" class="h-full border-r border-surface-500/20">
-				<Navigation.Menu>
-					<Navigation.TriggerAnchor href="/" class={activeClass('/')} aria-current={ariaCurrent('/')}>
-						<HouseIcon width={20} height={20} />
-						<Navigation.TriggerText>Home</Navigation.TriggerText>
-					</Navigation.TriggerAnchor>
+		<aside class="hidden md:block h-full w-min">
+			<nav class="h-full" aria-label="Main">
+				<Navigation layout="rail" class="h-full border-r border-surface-500/20">
+					<Navigation.Menu>
+						<Navigation.TriggerAnchor href="/" class={activeClass('/')} aria-current={ariaCurrent('/')}>
+							<HouseIcon width={iconSize} height={iconSize} />
+							<Navigation.TriggerText>Home</Navigation.TriggerText>
+						</Navigation.TriggerAnchor>
 
-					<Navigation.TriggerAnchor href="/contacts" class={activeClass('/contacts')} aria-current={ariaCurrent('/contacts')}>
-						<UserIcon width={20} height={20} />
-						<Navigation.TriggerText>Contacts</Navigation.TriggerText>
-					</Navigation.TriggerAnchor>
+						<Navigation.TriggerAnchor href="/contacts" class={activeClass('/contacts')} aria-current={ariaCurrent('/contacts')}>
+							<UserIcon width={iconSize} height={iconSize} />
+							<Navigation.TriggerText>Contacts</Navigation.TriggerText>
+						</Navigation.TriggerAnchor>
 
-					<Navigation.TriggerAnchor href="/about" class={activeClass('/about')} aria-current={ariaCurrent('/about')}>
-						<InfoIcon width={20} height={20} />
-						<Navigation.TriggerText>About</Navigation.TriggerText>
-					</Navigation.TriggerAnchor>
+						<Navigation.TriggerAnchor href="/about" class={activeClass('/about')} aria-current={ariaCurrent('/about')}>
+							<InfoIcon width={iconSize} height={iconSize} />
+							<Navigation.TriggerText>About</Navigation.TriggerText>
+						</Navigation.TriggerAnchor>
 
-					<Navigation.TriggerAnchor href="/settings" class={activeClass('/settings')} aria-current={ariaCurrent('/settings')}>
-						<SettingsIcon width={20} height={20} />
-						<Navigation.TriggerText>Settings</Navigation.TriggerText>
-					</Navigation.TriggerAnchor>
-				</Navigation.Menu>
-			</Navigation>
+						<Navigation.TriggerAnchor href="/settings" class={activeClass('/settings')} aria-current={ariaCurrent('/settings')}>
+							<SettingsIcon width={iconSize} height={iconSize} />
+							<Navigation.TriggerText>Settings</Navigation.TriggerText>
+						</Navigation.TriggerAnchor>
+					</Navigation.Menu>
+				</Navigation>
+			</nav>
 		</aside>
 
-		<main>
+		<main class="p-4">
 			{@render children()}
 		</main>
+		<SvelteQueryDevtools />
 	</div>
-
-	<SvelteQueryDevtools />
 </QueryClientProvider>
