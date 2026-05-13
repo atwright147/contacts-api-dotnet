@@ -1,6 +1,6 @@
 <script lang="ts">
-	import "../app.css";
-	import "./layout.css";
+	import '../app.css';
+	import './layout.css';
 
 	import { AppBar, Navigation } from '@skeletonlabs/skeleton-svelte';
 	import HouseIcon from '~icons/lucide/house';
@@ -38,33 +38,49 @@
 </svelte:head>
 
 <QueryClientProvider client={queryClient}>
-	<div class="grid h-screen grid-rows-[auto_1fr] grid-cols-[min-content_1fr]">
+	<div class="grid h-screen grid-cols-[min-content_1fr] grid-rows-[auto_1fr]">
 		<header class="col-span-full">
 			<AppBar>
 				<p class="h2">My App</p>
 			</AppBar>
 		</header>
 
-		<aside class="hidden md:block h-full w-min">
+		<aside class="hidden h-full w-min md:block">
 			<nav class="h-full" aria-label="Main">
 				<Navigation layout="rail" class="h-full border-r border-surface-500/20">
 					<Navigation.Menu>
-						<Navigation.TriggerAnchor href="/" class={activeClass('/')} aria-current={ariaCurrent('/')}>
+						<Navigation.TriggerAnchor
+							href="/"
+							class={activeClass('/')}
+							aria-current={ariaCurrent('/')}
+						>
 							<HouseIcon width={iconSize} height={iconSize} />
 							<Navigation.TriggerText>Home</Navigation.TriggerText>
 						</Navigation.TriggerAnchor>
 
-						<Navigation.TriggerAnchor href="/contacts" class={activeClass('/contacts')} aria-current={ariaCurrent('/contacts')}>
+						<Navigation.TriggerAnchor
+							href="/contacts"
+							class={activeClass('/contacts')}
+							aria-current={ariaCurrent('/contacts')}
+						>
 							<UserIcon width={iconSize} height={iconSize} />
 							<Navigation.TriggerText>Contacts</Navigation.TriggerText>
 						</Navigation.TriggerAnchor>
 
-						<Navigation.TriggerAnchor href="/about" class={activeClass('/about')} aria-current={ariaCurrent('/about')}>
+						<Navigation.TriggerAnchor
+							href="/about"
+							class={activeClass('/about')}
+							aria-current={ariaCurrent('/about')}
+						>
 							<InfoIcon width={iconSize} height={iconSize} />
 							<Navigation.TriggerText>About</Navigation.TriggerText>
 						</Navigation.TriggerAnchor>
 
-						<Navigation.TriggerAnchor href="/settings" class={activeClass('/settings')} aria-current={ariaCurrent('/settings')}>
+						<Navigation.TriggerAnchor
+							href="/settings"
+							class={activeClass('/settings')}
+							aria-current={ariaCurrent('/settings')}
+						>
 							<SettingsIcon width={iconSize} height={iconSize} />
 							<Navigation.TriggerText>Settings</Navigation.TriggerText>
 						</Navigation.TriggerAnchor>

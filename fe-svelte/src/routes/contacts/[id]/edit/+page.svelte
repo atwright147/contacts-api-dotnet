@@ -1,16 +1,15 @@
 <script lang="ts">
 	import { createQuery } from '@tanstack/svelte-query';
-  import { getApiContactsById } from '$lib/../client/sdk.gen';
-  import type { Contact } from '$lib/../client/types.gen';
+	import { getApiContactsById } from '$lib/../client/sdk.gen';
+	import type { Contact } from '$lib/../client/types.gen';
 
-  const query = createQuery<Contact>(() => ({
-    queryKey: ['contact', { id: 1 }],
-    queryFn: async () => {
-      const { data } = await getApiContactsById({ path: { id: 1 }, throwOnError: true });
-      return data;
-    }
-  }));
-
+	const query = createQuery<Contact>(() => ({
+		queryKey: ['contact', { id: 1 }],
+		queryFn: async () => {
+			const { data } = await getApiContactsById({ path: { id: 1 }, throwOnError: true });
+			return data;
+		}
+	}));
 </script>
 
 <h1 class="h1">Contact</h1>
