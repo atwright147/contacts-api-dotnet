@@ -8,7 +8,7 @@
 		queryFn: async () => {
 			const { data } = await getApiContactsById({ path: { id: 1 }, throwOnError: true });
 			return data;
-		}
+		},
 	}));
 </script>
 

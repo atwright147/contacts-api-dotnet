@@ -13,7 +13,7 @@
 		queryFn: async () => {
 			const { data } = await getApiContacts({ throwOnError: true });
 			return data;
-		}
+		},
 	}));
 
 	const darkGridTheme = themeQuartz.withPart(colorSchemeDark);
@@ -25,13 +25,13 @@
 			{ field: 'email' },
 			{ field: 'dateOfBirth' },
 			{ field: 'isFavourite' },
-			{ field: 'actions', cellRenderer: makeSvelteCellRenderer(EditButtonCell) }
+			{ field: 'actions', cellRenderer: makeSvelteCellRenderer(EditButtonCell) },
 		],
 		loadThemeGoogleFonts: true,
 		getRowId: (params) => String(params.data.id),
 		domLayout: 'autoHeight',
 
-		theme: darkGridTheme
+		theme: darkGridTheme,
 	};
 
 	const modules = [ClientSideRowModelModule];
