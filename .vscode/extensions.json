@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "jakubkozera.csharp-dev-tools",
+        "ms-dotnettools.vscode-dotnet-runtime",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+    ]
+}
