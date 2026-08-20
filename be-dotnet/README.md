@@ -41,6 +41,16 @@ dotnet ef migrations add {NameOfMigration}
 ```sh
 dotnet ef database update
 ```
+## Todo
+
+- [ ] /api/v1/contacts/birthdays
+- [ ] /api/v1/contacts/favourites
+- [ ] /api/v1/contacts/:id
+- [ ] /api/v1/contacts/:id/favourite
+- [ ] /api/v1/contacts/:id/unfavourite
+- [ ] /api/v1/contacts/:id
+- [ ] /api/v1/contacts/:id
+
 
 ## Useful docs
 

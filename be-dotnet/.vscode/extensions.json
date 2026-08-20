@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "ms-dotnettools.vscode-dotnet-runtime",
+    "JakubKozera.csharp-dev-tools",
+    "kreativ-software.csharpextensions",
+    "humao.rest-client",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+  ]
+}
