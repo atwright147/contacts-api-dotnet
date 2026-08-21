@@ -3,12 +3,8 @@ using contacts_api.Models;
 
 namespace contacts_api.Data
 {
-  public class ApplicationDbContext : DbContext
+  public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
   {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-    {
-    }
-
     public DbSet<Contact> Contacts { get; set; }
     public DbSet<Address> Addresses { get; set; }
     public DbSet<PhoneNumber> PhoneNumbers { get; set; }

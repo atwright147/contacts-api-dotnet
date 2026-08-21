@@ -12,8 +12,8 @@ namespace contacts_api.Models
     public bool IsFavorite { get; set; } = false;
     public int PrimaryAddressId { get; set; }
     public int PrimaryPhoneNumberId { get; set; }
-    public ICollection<Address> Addresses { get; set; } = new List<Address>();
-    public ICollection<PhoneNumber> PhoneNumbers { get; set; } = new List<PhoneNumber>();
+    public ICollection<Address> Addresses { get; set; } = [];
+    public ICollection<PhoneNumber> PhoneNumbers { get; set; } = [];
   }
 
   public class Address

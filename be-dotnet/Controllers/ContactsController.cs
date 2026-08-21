@@ -134,7 +134,7 @@ namespace contacts_api.Controllers
       context.Addresses.RemoveRange(existingContact.Addresses);
       context.PhoneNumbers.RemoveRange(existingContact.PhoneNumbers);
 
-      existingContact.Addresses = (contact.Addresses ?? new List<Address>())
+      existingContact.Addresses = [.. (contact.Addresses ?? [])
         .Select(a => new Address
         {
           Line1 = a.Line1,
@@ -143,16 +143,14 @@ namespace contacts_api.Controllers
           State = a.State,
           PostalCode = a.PostalCode,
           Country = a.Country
-        })
-        .ToList();
+        })];
 
-      existingContact.PhoneNumbers = (contact.PhoneNumbers ?? new List<PhoneNumber>())
+      existingContact.PhoneNumbers = [.. (contact.PhoneNumbers ?? [])
         .Select(t => new PhoneNumber
         {
           Number = t.Number,
           Type = t.Type,
-        })
-        .ToList();
+        })];
 
       try
       {
@@ -174,8 +172,8 @@ namespace contacts_api.Controllers
     [HttpPost]
     public async Task<ActionResult<Contact>> PostContact(Contact contact)
     {
-      contact.Addresses ??= new List<Address>();
-      contact.PhoneNumbers ??= new List<PhoneNumber>();
+      contact.Addresses ??= [];
+      contact.PhoneNumbers ??= [];
 
       context.Contacts.Add(contact);
       await context.SaveChangesAsync();

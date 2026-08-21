@@ -4,15 +4,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace contacts_api.Services
 {
-  public class DatabaseSeeder
+  public class DatabaseSeeder(ApplicationDbContext context)
   {
     private const int SeederRandomSeed = 20260423;
-    private readonly ApplicationDbContext _context;
-
-    public DatabaseSeeder(ApplicationDbContext context)
-    {
-      _context = context;
-    }
+    private readonly ApplicationDbContext _context = context;
 
     public async Task SeedAsync()
     {
@@ -21,41 +16,36 @@ namespace contacts_api.Services
       {
         var contacts = new List<Contact>
         {
-          new Contact
-          {
+          new() {
             FirstName = "John",
             LastName = "Doe",
             Email = "john.doe@example.com",
             DateOfBirth = new DateOnly(2000, 1, 1),
-            Addresses = new List<Address>
-            {
-              new Address
-              {
+            Addresses =
+            [
+              new() {
                 Line1 = "123 Main St",
                 City = "Austin",
                 State = "TX",
                 PostalCode = "78701",
                 Country = "USA"
               }
-            },
-            PhoneNumbers = new List<PhoneNumber>
-            {
-              new PhoneNumber
-              {
+            ],
+            PhoneNumbers =
+            [
+              new() {
                 Number = "+1-512-555-0101",
                 Type = "mobile"
               }
-            }
+            ]
           },
-          new Contact
-          {
+          new() {
             FirstName = "Jane",
             LastName = "Smith",
             Email = "jane.smith@example.com",
-            Addresses = new List<Address>
-            {
-              new Address
-              {
+            Addresses =
+            [
+              new() {
                 Line1 = "456 Oak Ave",
                 Line2 = "Apt 2C",
                 City = "Dallas",
@@ -63,90 +53,80 @@ namespace contacts_api.Services
                 PostalCode = "75201",
                 Country = "USA"
               }
-            },
-            PhoneNumbers = new List<PhoneNumber>
-            {
-              new PhoneNumber
-              {
+            ],
+            PhoneNumbers =
+            [
+              new() {
                 Number = "+1-214-555-0102",
                 Type = "home"
               }
-            }
+            ]
           },
-          new Contact
-          {
+          new() {
             FirstName = "Bob",
             LastName = "Johnson",
             Email = "bob.johnson@example.com",
-            Addresses = new List<Address>
-            {
-              new Address
-              {
+            Addresses =
+            [
+              new() {
                 Line1 = "789 Pine Rd",
                 City = "Houston",
                 State = "TX",
                 PostalCode = "77002",
                 Country = "USA"
               }
-            },
-            PhoneNumbers = new List<PhoneNumber>
-            {
-              new PhoneNumber
-              {
+            ],
+            PhoneNumbers =
+            [
+              new() {
                 Number = "+1-713-555-0103",
                 Type = "work"
               }
-            }
+            ]
           },
-          new Contact
-          {
+          new() {
             FirstName = "Alice",
             LastName = "Williams",
             Email = "alice.williams@example.com",
-            Addresses = new List<Address>
-            {
-              new Address
-              {
+            Addresses =
+            [
+              new() {
                 Line1 = "321 Cedar Blvd",
                 City = "San Antonio",
                 State = "TX",
                 PostalCode = "78205",
                 Country = "USA"
               }
-            },
-            PhoneNumbers = new List<PhoneNumber>
-            {
-              new PhoneNumber
-              {
+            ],
+            PhoneNumbers =
+            [
+              new() {
                 Number = "+1-210-555-0104",
                 Type = "mobile"
               }
-            }
+            ]
           },
-          new Contact
-          {
+          new() {
             FirstName = "Charlie",
             LastName = "Brown",
             Email = "charlie.brown@example.com",
-            Addresses = new List<Address>
-            {
-              new Address
-              {
+            Addresses =
+            [
+              new() {
                 Line1 = "654 Birch Ln",
                 City = "Fort Worth",
                 State = "TX",
                 PostalCode = "76102",
                 Country = "USA"
               }
-            },
-            PhoneNumbers = new List<PhoneNumber>
-            {
-              new PhoneNumber
-              {
+            ],
+            PhoneNumbers =
+            [
+              new() {
                 Number = "+1-817-555-0105",
                 Type = "home"
               }
-            }
+            ]
           }
         };
 
@@ -214,7 +194,7 @@ namespace contacts_api.Services
       }
     }
 
-    private static void ShuffleInPlace<T>(IList<T> items, Random random)
+    private static void ShuffleInPlace(List<Contact> items, Random random)
     {
       for (var i = items.Count - 1; i > 0; i--)
       {
