@@ -13,10 +13,10 @@ namespace contacts_api.Controllers
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Contact>>> GetContacts()
     {
-      return await context.Contacts
-          .Include(c => c.Addresses)
-          .Include(c => c.PhoneNumbers)
-          .ToListAsync();
+      return  context.Contacts
+        .Include(c => c.Addresses)
+        .Include(c => c.PhoneNumbers)
+        .ToList();
     }
 
     // GET: api/Contacts/5
@@ -24,9 +24,9 @@ namespace contacts_api.Controllers
     public async Task<ActionResult<ContactWithFullName>> GetContact(int id)
     {
       var contact = await context.Contacts
-          .Include(c => c.Addresses)
-          .Include(c => c.PhoneNumbers)
-          .FirstOrDefaultAsync(c => c.Id == id);
+        .Include(c => c.Addresses)
+        .Include(c => c.PhoneNumbers)
+        .FirstOrDefaultAsync(c => c.Id == id);
 
       if (contact == null)
       {
@@ -71,6 +71,24 @@ namespace contacts_api.Controllers
         .ToList();
     }
 
+    // GET: api/Contacts/favorites
+    [HttpGet("favorites")]
+    public async Task<ActionResult<IEnumerable<Contact>>> GetFavorites()
+    {
+      return context.Contacts
+        .Where(c => c.IsFavorite)
+        .Select(c => new Contact
+        {
+          Id = c.Id,
+          FirstName = c.FirstName,
+          LastName = c.LastName,
+          Email = c.Email,
+          DateOfBirth = c.DateOfBirth,
+          IsFavorite = c.IsFavorite
+        })
+        .ToList();
+    }
+
     // PUT: api/Contacts/5
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPut("{id}")]
@@ -82,9 +100,9 @@ namespace contacts_api.Controllers
       }
 
       var existingContact = await context.Contacts
-          .Include(c => c.Addresses)
-          .Include(c => c.PhoneNumbers)
-          .FirstOrDefaultAsync(c => c.Id == id);
+        .Include(c => c.Addresses)
+        .Include(c => c.PhoneNumbers)
+        .FirstOrDefaultAsync(c => c.Id == id);
 
       if (existingContact == null)
       {
@@ -104,24 +122,24 @@ namespace contacts_api.Controllers
       context.PhoneNumbers.RemoveRange(existingContact.PhoneNumbers);
 
       existingContact.Addresses = (contact.Addresses ?? new List<Address>())
-          .Select(a => new Address
-          {
-            Line1 = a.Line1,
-            Line2 = a.Line2,
-            City = a.City,
-            State = a.State,
-            PostalCode = a.PostalCode,
-            Country = a.Country
-          })
-          .ToList();
+        .Select(a => new Address
+        {
+          Line1 = a.Line1,
+          Line2 = a.Line2,
+          City = a.City,
+          State = a.State,
+          PostalCode = a.PostalCode,
+          Country = a.Country
+        })
+        .ToList();
 
       existingContact.PhoneNumbers = (contact.PhoneNumbers ?? new List<PhoneNumber>())
-          .Select(t => new PhoneNumber
-          {
-            Number = t.Number,
-            Type = t.Type,
-          })
-          .ToList();
+        .Select(t => new PhoneNumber
+        {
+          Number = t.Number,
+          Type = t.Type,
+        })
+        .ToList();
 
       try
       {

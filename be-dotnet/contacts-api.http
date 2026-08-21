@@ -82,3 +82,8 @@ GET {{contacts_api_HostAddress}}/api/Contacts/birthdays
 Accept: application/json
 
 ###
+
+GET {{contacts_api_HostAddress}}/api/Contacts/favorites
+Accept: application/json
+
+###
