@@ -89,6 +89,19 @@ namespace contacts_api.Controllers
         .ToList();
     }
 
+    public record UpdateFavoriteDto(bool IsFavorite);
+
+    [HttpPatch("{id}/favorite")]
+    public async Task<IActionResult> PatchContactFavorite(int id, UpdateFavoriteDto dto)
+    {
+      var contact = await context.Contacts.FirstOrDefaultAsync(c => c.Id == id);
+      if (contact == null) return NotFound();
+
+      contact.IsFavorite = dto.IsFavorite;
+      await context.SaveChangesAsync();
+      return NoContent();
+    }
+
     // PUT: api/Contacts/5
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPut("{id}")]

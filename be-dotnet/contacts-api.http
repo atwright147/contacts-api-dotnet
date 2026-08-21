@@ -87,3 +87,13 @@ GET {{contacts_api_HostAddress}}/api/Contacts/favorites
 Accept: application/json
 
 ###
+
+PATCH {{contacts_api_HostAddress}}/api/Contacts/1/favorite
+Content-Type: application/json
+Accept: application/json
+
+{
+  "isFavorite": false
+}
+
+###
