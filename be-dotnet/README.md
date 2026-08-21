@@ -43,9 +43,9 @@ dotnet ef database update
 ```
 ## Todo
 
-- [ ] /api/v1/contacts/birthdays
+- [x] /api/v1/contacts/birthdays
 - [ ] /api/v1/contacts/favourites
-- [ ] /api/v1/contacts/:id
+- [x] /api/v1/contacts/:id
 - [ ] /api/v1/contacts/:id/favourite
 - [ ] /api/v1/contacts/:id/unfavourite
 
