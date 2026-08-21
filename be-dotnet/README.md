@@ -48,9 +48,6 @@ dotnet ef database update
 - [ ] /api/v1/contacts/:id
 - [ ] /api/v1/contacts/:id/favourite
 - [ ] /api/v1/contacts/:id/unfavourite
-- [ ] /api/v1/contacts/:id
-- [ ] /api/v1/contacts/:id
-
 
 ## Useful docs
 

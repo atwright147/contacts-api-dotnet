@@ -1,7 +1,7 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using contacts_api.Data;
 using contacts_api.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace contacts_api.Controllers
 {
@@ -51,6 +51,24 @@ namespace contacts_api.Controllers
       };
 
       return contactWithFullname;
+    }
+
+    // GET: api/Contacts/birthdays
+    [HttpGet("birthdays")]
+    public async Task<ActionResult<IEnumerable<Contact>>> GetBirthdays()
+    {
+      return context.Contacts
+        .Where(c => c.DateOfBirth != null)
+        .Select(c => new Contact
+        {
+          Id = c.Id,
+          FirstName = c.FirstName,
+          LastName = c.LastName,
+          Email = c.Email,
+          DateOfBirth = c.DateOfBirth,
+          IsFavorite = c.IsFavorite
+        })
+        .ToList();
     }
 
     // PUT: api/Contacts/5

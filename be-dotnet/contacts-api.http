@@ -77,3 +77,8 @@ Content-Type: application/json
 }
 
 ###
+
+GET {{contacts_api_HostAddress}}/api/Contacts/birthdays
+Accept: application/json
+
+###
