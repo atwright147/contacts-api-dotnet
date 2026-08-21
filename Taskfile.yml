@@ -1,0 +1,32 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Start BE and FE together
+    aliases: [dev, dev-react]
+    deps: [dotnet, react]
+
+  dev-svelte:
+    desc: Start BE and FE together
+    deps: [dotnet, svelte]
+
+  dotnet:
+    desc: Run the .NET API
+    dir: be-dotnet
+    cmds:
+      - dotnet run
+    prefix: dotnet
+
+  react:
+    desc: Run the React dev server
+    dir: fe-react
+    cmds:
+      - npm run dev
+    prefix: react
+
+  svelte:
+    desc: Run the Svelte dev server
+    dir: fe-svelte
+    cmds:
+      - npm run dev
+    prefix: svelte
