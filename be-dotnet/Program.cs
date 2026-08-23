@@ -14,6 +14,8 @@ var builder = WebApplication.CreateBuilder(args);
 var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>()
   ?? throw new InvalidOperationException("JwtSettings section is missing from configuration.");
 
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
+
 // Add services to the container.
 
 builder.Services
@@ -88,6 +90,16 @@ using (var scope = app.Services.CreateScope())
   var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
   var seeder = new DatabaseSeeder(context);
   await seeder.SeedAsync();
+
+  // Ensure the roles referenced during registration/authorization exist.
+  var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+  foreach (var roleName in new[] { Roles.Admin, Roles.User })
+  {
+    if (!await roleManager.RoleExistsAsync(roleName))
+    {
+      await roleManager.CreateAsync(new IdentityRole(roleName));
+    }
+  }
 }
 
 // Configure the HTTP request pipeline.
