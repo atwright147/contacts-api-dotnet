@@ -1,9 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using contacts_api.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using contacts_api.Entities;
 
 namespace contacts_api.Data
 {
-  public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
+  public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+    : IdentityDbContext<ApplicationUser>(options)
   {
     public DbSet<Contact> Contacts { get; set; }
     public DbSet<Address> Addresses { get; set; }

@@ -1,5 +1,6 @@
 using contacts_api.Data;
 using contacts_api.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,13 +8,14 @@ namespace contacts_api.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
+  [Authorize]
   public class ContactsController(ApplicationDbContext context) : ControllerBase
   {
     // GET: api/Contacts
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Contact>>> GetContacts()
     {
-      return  context.Contacts
+      return context.Contacts
         .Include(c => c.Addresses)
         .Include(c => c.PhoneNumbers)
         .ToList();
