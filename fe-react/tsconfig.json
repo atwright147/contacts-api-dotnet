@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    // Aliases are resolved relative to this tsconfig file.
+    "paths": {
+      "~src/*": ["./src/*"],
+      "~ref/*": ["./ref/*"],
+      "~stores/*": ["./src/stores/*"],
+      "~types/*": ["./src/types/*"],
+      "~routes/*": ["./src/routes/*"],
+      "~components/*": ["./src/components/*"],
+      "~hooks/*": ["./src/hooks/*"],
+      "~utils/*": ["./src/utils/*"],
+    },
+  },
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}

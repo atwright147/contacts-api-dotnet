@@ -9,6 +9,10 @@
       "name": "BE Dotnet",
     },
     {
+      "path": "fe-react",
+      "name": "FE React",
+    },
+    {
       "path": "fe-svelte",
       "name": "FE Svelte",
     },
