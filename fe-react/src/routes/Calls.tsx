@@ -1,10 +1,8 @@
-import { Typography } from '@mui/material';
-
 export function Calls() {
   return (
     <>
-      <Typography variant="h1">Calls</Typography>
-      <Typography>Calls route works!</Typography>
+      <h1>Calls</h1>
+      <p>Calls route works!</p>
     </>
   );
 }

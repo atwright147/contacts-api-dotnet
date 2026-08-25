@@ -1,10 +1,8 @@
-import { Typography } from '@mui/material';
-
 export function Calendar() {
   return (
     <>
-      <Typography variant="h1">Calendar</Typography>
-      <Typography>Calendar route works!</Typography>
+      <h1>Calendar</h1>
+      <p>Calendar route works!</p>
     </>
   );
 }

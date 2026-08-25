@@ -1,23 +1,14 @@
-import { Grid, Typography } from '@mui/material';
-
-import { Agenda } from '../components/Agenda/Agenda';
-import { ContactGrid } from '../components/ContactGrid/ContactGrid';
-
 export function Home() {
   return (
     <>
-      <Typography variant="h1">Home</Typography>
+      <h1>Home</h1>
 
-      <Grid container>
-        <Grid item lg={4} md={6} xs={12}>
-          <Agenda />
-        </Grid>
+      <div>
+        // Agenda
 
-        <Grid item lg={8} md={6} xs={12} sx={{ pl: 2 }}>
-          <Typography variant="h2">Favourite Contacts</Typography>
-          <ContactGrid />
-        </Grid>
-      </Grid>
+          <h2>Favourite Contacts</h2>
+          // ContactGrid
+      </div>
     </>
   );
 }
