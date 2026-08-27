@@ -1,6 +1,6 @@
-import { AppShell, Burger } from '@mantine/core';
+import { AppShell, Burger, NavLink } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { Link } from 'raviger';
+import { Link as RavigerLink } from 'raviger';
 import type { JSX, ReactNode } from 'react';
 
 // const links = [
@@ -56,13 +56,12 @@ export const Root = ({ children }: { children: ReactNode }): JSX.Element => {
           hiddenFrom="sm"
           size="sm"
         />
-
-        <div>Logo</div>
       </AppShell.Header>
 
       <AppShell.Navbar>
-        <Link href='/'>Home</Link>
-        <Link href='/contacts'>Contacts</Link>
+        <NavLink component={RavigerLink} label="Home" href="/" />
+        <NavLink component={RavigerLink} label="Login" href="/login" />
+        <NavLink component={RavigerLink} label="Contacts" href="/contacts" />
       </AppShell.Navbar>
 
       <AppShell.Main>{children}</AppShell.Main>
