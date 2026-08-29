@@ -1,4 +1,4 @@
-using Microsoft.CodeAnalysis;
+using System.Text.Json.Serialization;
 
 namespace contacts_api.Models
 {
@@ -10,9 +10,13 @@ namespace contacts_api.Models
     public required string Email { get; set; } = string.Empty;
     public DateOnly? DateOfBirth { get; set; }
     public bool IsFavorite { get; set; } = false;
+    [JsonIgnore]
     public int PrimaryAddressId { get; set; }
+    [JsonIgnore]
     public int PrimaryPhoneNumberId { get; set; }
+    [JsonIgnore]
     public ICollection<Address> Addresses { get; set; } = [];
+    [JsonIgnore]
     public ICollection<PhoneNumber> PhoneNumbers { get; set; } = [];
   }
 
@@ -39,5 +43,13 @@ namespace contacts_api.Models
   public class ContactWithFullName : Contact
   {
     public string FullName { get; set; } = string.Empty;
+    [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
+    public new int PrimaryAddressId { get; set; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
+    public new int PrimaryPhoneNumberId { get; set; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
+    public new ICollection<Address> Addresses { get; set; } = [];
+    [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
+    public new ICollection<PhoneNumber> PhoneNumbers { get; set; } = [];
   }
 }

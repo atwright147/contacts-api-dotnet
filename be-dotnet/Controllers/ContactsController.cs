@@ -15,10 +15,7 @@ namespace contacts_api.Controllers
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Contact>>> GetContacts()
     {
-      return context.Contacts
-        .Include(c => c.Addresses)
-        .Include(c => c.PhoneNumbers)
-        .ToList();
+      return context.Contacts.ToList();
     }
 
     // GET: api/Contacts/5
