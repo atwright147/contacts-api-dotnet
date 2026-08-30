@@ -30,10 +30,6 @@ export type Contact = {
     email: string | null;
     dateOfBirth?: string | null;
     isFavorite?: boolean;
-    primaryAddressId?: number;
-    primaryPhoneNumberId?: number;
-    addresses?: Array<Address> | null;
-    phoneNumbers?: Array<PhoneNumber> | null;
 };
 
 export type ContactWithFullName = {
@@ -43,11 +39,11 @@ export type ContactWithFullName = {
     email: string | null;
     dateOfBirth?: string | null;
     isFavorite?: boolean;
+    fullName?: string | null;
     primaryAddressId?: number;
     primaryPhoneNumberId?: number;
     addresses?: Array<Address> | null;
     phoneNumbers?: Array<PhoneNumber> | null;
-    fullName?: string | null;
 };
 
 export type LoginRequest = {
