@@ -1,10 +1,10 @@
-import { fileURLToPath } from 'node:url'
-import path from 'node:path'
-import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
-import Icons from 'unplugin-icons/vite'
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+import Icons from 'unplugin-icons/vite';
 
-const src = fileURLToPath(new URL('./src', import.meta.url))
+const src = fileURLToPath(new URL('./src', import.meta.url));
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -28,4 +28,4 @@ export default defineConfig({
       '~utils': path.resolve(src, 'utils'),
     },
   },
-})
+});

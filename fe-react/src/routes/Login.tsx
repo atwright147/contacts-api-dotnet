@@ -35,11 +35,7 @@ export function Login(): JSX.Element {
     <>
       <h1>Login</h1>
 
-      <form
-        onSubmit={handleSubmit((values) =>
-          login.mutate({ body: values }),
-        )}
-      >
+      <form onSubmit={handleSubmit((values) => login.mutate({ body: values }))}>
         <Stack gap="md">
           <Controller
             control={control}
@@ -72,9 +68,7 @@ export function Login(): JSX.Element {
             )}
           />
 
-          {login.isError && (
-            <TextInput error="Invalid email or password" />
-          )}
+          {login.isError && <TextInput error="Invalid email or password" />}
 
           <Button type="submit" loading={login.isPending}>
             Login

@@ -11,6 +11,15 @@
     {
       "path": "fe-react",
       "name": "FE React",
+      "settings": {
+        "editor.codeActionsOnSave": {
+          "source.fixAll.oxc": "always"
+        },
+        "[javascript][javascriptreact][typescript][typescriptreact]": {
+          "editor.defaultFormatter": "oxc.oxc-vscode",
+          "editor.formatOnSave": true
+        }
+      }
     },
     {
       "path": "fe-svelte",

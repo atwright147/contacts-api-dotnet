@@ -16,21 +16,16 @@ export function NavLinkList({ links }: Props): JSX.Element {
   return (
     <>
       {links.map((link) => {
-        const label = <>
-          <Group>
-            {link.icon} {link.text}
-          </Group>
-        </>;
-
-        return (
-          <NavLink
-            component={RavigerLink}
-            label={label}
-            href={link.path}
-            key={link.path}
-          />
+        const label = (
+          <>
+            <Group>
+              {link.icon} {link.text}
+            </Group>
+          </>
         );
+
+        return <NavLink component={RavigerLink} label={label} href={link.path} key={link.path} />;
       })}
     </>
-  )
+  );
 }

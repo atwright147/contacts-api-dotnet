@@ -9,7 +9,7 @@
       "~routes/*": ["./src/routes/*"],
       "~components/*": ["./src/components/*"],
       "~hooks/*": ["./src/hooks/*"],
-      "~utils/*": ["./src/utils/*"],
+      "~utils/*": ["./src/utils/*"]
     },
     "target": "es2023",
     "lib": ["ES2023", "DOM"],

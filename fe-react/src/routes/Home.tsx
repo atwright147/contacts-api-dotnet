@@ -5,9 +5,8 @@ export function Home() {
 
       <div>
         // Agenda
-
-          <h2>Favourite Contacts</h2>
-          // ContactGrid
+        <h2>Favourite Contacts</h2>
+        // ContactGrid
       </div>
     </>
   );

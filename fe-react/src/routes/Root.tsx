@@ -12,7 +12,6 @@ import IconUsers from '~icons/lucide/users';
 
 import { NavLinkList } from '../components/NavLinkList';
 
-
 const links = [
   {
     text: 'Home',
@@ -65,12 +64,7 @@ export const Root = ({ children }: { children: ReactNode }): JSX.Element => {
       }}
     >
       <AppShell.Header>
-        <Burger
-          opened={opened}
-          onClick={toggle}
-          hiddenFrom="sm"
-          size="sm"
-        />
+        <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
         Header
       </AppShell.Header>
 
@@ -81,4 +75,4 @@ export const Root = ({ children }: { children: ReactNode }): JSX.Element => {
       <AppShell.Main>{children}</AppShell.Main>
     </AppShell>
   );
-}
+};
