@@ -1,8 +1,11 @@
+import { Title, Typography } from '@mantine/core';
+
 export function Calendar() {
   return (
     <>
-      <h1>Calendar</h1>
-      <p>Calendar route works!</p>
+      <Title order={1}>Calendar</Title>
+
+      <Typography>Calendar route works!</Typography>
     </>
   );
 }

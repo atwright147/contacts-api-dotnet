@@ -1,8 +1,11 @@
+import { Title, Typography } from '@mantine/core';
+
 export function Calls() {
   return (
     <>
-      <h1>Calls</h1>
-      <p>Calls route works!</p>
+      <Title order={1}>Calls</Title>
+
+      <Typography>Calls route works!</Typography>
     </>
   );
 }

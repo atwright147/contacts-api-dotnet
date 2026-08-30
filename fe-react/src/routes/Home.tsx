@@ -1,12 +1,16 @@
+import { Title, Typography } from '@mantine/core';
+
 export function Home() {
   return (
     <>
-      <h1>Home</h1>
+      <Title order={1}>Home</Title>
 
       <div>
-        // Agenda
-        <h2>Favourite Contacts</h2>
-        // ContactGrid
+        <Typography>// Agenda</Typography>
+
+        <Title order={2}>Favourite Contacts</Title>
+
+        <Typography>// ContactGrid</Typography>
       </div>
     </>
   );

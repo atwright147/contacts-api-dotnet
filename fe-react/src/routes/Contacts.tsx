@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getApiContactsOptions } from '~src/client/@tanstack/react-query.gen';
 import { useAuthStore } from '~stores/authStore';
 import { ContactsTable } from '../components/ContactsTable';
+import { Title } from '@mantine/core';
 
 export function Contacts() {
   const token = useAuthStore((s) => s.token);
@@ -12,7 +13,7 @@ export function Contacts() {
 
   return (
     <>
-      <h1>Contacts</h1>
+      <Title order={1}>Contacts</Title>
 
       {!isLoading && !isFetching && !isError && data && <ContactsTable data={data} />}
     </>

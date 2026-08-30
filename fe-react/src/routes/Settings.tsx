@@ -1,8 +1,11 @@
+import { Title, Typography } from '@mantine/core';
+
 export function Settings() {
   return (
     <>
-      <h1>Settings</h1>
-      <p>Settings route works!</p>
+      <Title order={1}>Settings</Title>
+
+      <Typography>Settings route works!</Typography>
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { Controller, useForm } from 'react-hook-form';
 import type { JSX } from 'react';
-import { Button, Stack, TextInput } from '@mantine/core';
+import { Button, Stack, TextInput, Title } from '@mantine/core';
 import { useNavigate } from 'raviger';
 
 import { postApiAuthLoginMutation } from '~src/client/@tanstack/react-query.gen';
@@ -33,7 +33,7 @@ export function Login(): JSX.Element {
 
   return (
     <>
-      <h1>Login</h1>
+      <Title order={1}>Login</Title>
 
       <form onSubmit={handleSubmit((values) => login.mutate({ body: values }))}>
         <Stack gap="md">
