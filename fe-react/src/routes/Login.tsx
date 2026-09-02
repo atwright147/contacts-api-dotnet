@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { Controller, useForm } from 'react-hook-form';
 import type { JSX } from 'react';
-import { Button, Stack, TextInput, Title } from '@mantine/core';
+import { Button, Stack, TextInput, Title, Typography } from '@mantine/core';
 import { useNavigate } from 'raviger';
 
 import { postApiAuthLoginMutation } from '~src/client/@tanstack/react-query.gen';
@@ -68,7 +68,7 @@ export function Login(): JSX.Element {
             )}
           />
 
-          {login.isError && <TextInput error="Invalid email or password" />}
+          {login.isError && <Typography>Invalid email or password</Typography>}
 
           <Button type="submit" loading={login.isPending}>
             Login
