@@ -1,4 +1,5 @@
 import { Title, Typography } from '@mantine/core';
+
 import { Agenda } from '../components/Agenda';
 import { DataTable } from '../components/DataTable';
 

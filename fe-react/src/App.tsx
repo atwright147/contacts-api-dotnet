@@ -3,6 +3,7 @@ import { type Routes, useRoutes } from 'raviger';
 import type { JSX } from 'react';
 import { MantineProvider } from '@mantine/core';
 
+import { ProtectedRoute } from './components/ProtectedRoute';
 import { Calendar } from '~routes/Calendar.tsx';
 import { Calls } from '~routes/Calls.tsx';
 import { Contacts } from '~routes/Contacts.tsx';
@@ -20,13 +21,13 @@ import './index.css';
 
 const routes = {
   '/': () => <Home />,
-  '/calendar': () => <Calendar />,
-  '/calls': () => <Calls />,
-  '/contacts': () => <Contacts />,
-  '/home': () => <Home />,
   '/login': () => <Login />,
-  '/messages': () => <Messages />,
-  '/settings': () => <Settings />,
+  '/calendar': () => <ProtectedRoute><Calendar /></ProtectedRoute>,
+  '/calls': () => <ProtectedRoute><Calls /></ProtectedRoute>,
+  '/contacts': () => <ProtectedRoute><Contacts /></ProtectedRoute>,
+  '/home': () => <ProtectedRoute><Home /></ProtectedRoute>,
+  '/messages': () => <ProtectedRoute><Messages /></ProtectedRoute>,
+  '/settings': () => <ProtectedRoute><Settings /></ProtectedRoute>,
 } satisfies Routes<string>;
 
 export const App = (): JSX.Element => {
