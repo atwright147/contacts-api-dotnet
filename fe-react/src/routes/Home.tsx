@@ -3,34 +3,33 @@ import { Agenda } from '../components/Agenda';
 import { DataTable } from '../components/DataTable';
 
 export function Home() {
-  const data = {
-    head: [
+  const head = [
       'id',
       'firstName',
       'lastName',
       'email',
-    ],
-    body: [
-      {
-        id: 1,
-        firstName: 'Andy',
-        lastName: 'Wright',
-        email: 'andy@example.com',
-      },
-      {
-        id: 2,
-        firstName: 'Beth',
-        lastName: 'Michon',
-        email: 'beth@example.com',
-      },
-      {
-        id: 3,
-        firstName: 'Sam',
-        lastName: 'Wright',
-        email: 'sam@example.com',
-      },
-    ]
-  };
+    ];
+
+  const body = [
+    {
+      id: 1,
+      firstName: 'Andy',
+      lastName: 'Wright',
+      email: 'andy@example.com',
+    },
+    {
+      id: 2,
+      firstName: 'Beth',
+      lastName: 'Michon',
+      email: 'beth@example.com',
+    },
+    {
+      id: 3,
+      firstName: 'Sam',
+      lastName: 'Wright',
+      email: 'sam@example.com',
+    },
+  ];
 
   return (
     <>
@@ -43,7 +42,7 @@ export function Home() {
 
         <Typography>// ContactGrid</Typography>
 
-        <DataTable data={data} />
+        <DataTable head={head} body={body} />
       </div>
     </>
   );

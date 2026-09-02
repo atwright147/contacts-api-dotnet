@@ -13,14 +13,12 @@ export function Contacts() {
     enabled: !!token,
   });
 
-  const tableData = {
-    head: ['head1', 'head2', 'head3'],
-    body: [
-      { value1: 'item1-1', value2: 'item1-2', value3: 'item1-3' },
-      { value1: 'item2-1', value2: 'item2-2', value3: 'item2-3' },
-      { value1: 'item3-1', value2: 'item3-2', value3: 'item3-3' },
-    ],
-  };
+  const head = ['head1', 'head2', 'head3'];
+  const body = [
+    { value1: 'item1-1', value2: 'item1-2', value3: 'item1-3' },
+    { value1: 'item2-1', value2: 'item2-2', value3: 'item2-3' },
+    { value1: 'item3-1', value2: 'item3-2', value3: 'item3-3' },
+  ];
 
   return (
     <>
@@ -28,7 +26,7 @@ export function Contacts() {
 
       {!isLoading && !isFetching && !isError && data && <ContactsTable data={data} />}
 
-      <DataTable {...tableData} />
+      <DataTable head={head} body={body} />
     </>
   );
 }
