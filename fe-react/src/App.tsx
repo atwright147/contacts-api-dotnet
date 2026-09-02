@@ -9,6 +9,7 @@ import { Calls } from '~routes/Calls.tsx';
 import { Contacts } from '~routes/Contacts.tsx';
 import { Home } from '~routes/Home.tsx';
 import { Login } from '~routes/Login.tsx';
+import { Logout } from './routes/Logout';
 import { Messages } from '~routes/Messages.tsx';
 import { Root } from '~routes/Root.tsx';
 import { Settings } from '~routes/Settings.tsx';
@@ -22,6 +23,7 @@ import './index.css';
 const routes = {
   '/': () => <Home />,
   '/login': () => <Login />,
+  '/logout': () => <Logout />,
   '/calendar': () => <ProtectedRoute><Calendar /></ProtectedRoute>,
   '/calls': () => <ProtectedRoute><Calls /></ProtectedRoute>,
   '/contacts': () => <ProtectedRoute><Contacts /></ProtectedRoute>,
