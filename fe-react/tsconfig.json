@@ -1,16 +1,13 @@
 {
   "compilerOptions": {
-    // Aliases are resolved relative to this tsconfig file.
-    "paths": {
-      "~src/*": ["./src/*"],
-      "~ref/*": ["./ref/*"],
-      "~stores/*": ["./src/stores/*"],
-      "~types/*": ["./src/types/*"],
-      "~routes/*": ["./src/routes/*"],
-      "~components/*": ["./src/components/*"],
-      "~hooks/*": ["./src/hooks/*"],
-      "~utils/*": ["./src/utils/*"]
-    }
+    // tell TS to look at package.json "imports"
+    "moduleResolution": "bundler",
+
+    // allow importing .ts/.tsx files without extensions
+    "allowImportingTsExtensions": true,
+
+    // stop TS complaining about missing emit for extensions
+    "noEmit": true
   },
   "files": [],
   "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]

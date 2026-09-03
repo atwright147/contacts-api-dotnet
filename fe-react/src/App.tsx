@@ -3,17 +3,17 @@ import { type Routes, useRoutes } from 'raviger';
 import type { JSX } from 'react';
 import { MantineProvider } from '@mantine/core';
 
-import { ProtectedRoute } from './components/ProtectedRoute';
-import { Calendar } from '~routes/Calendar.tsx';
-import { Calls } from '~routes/Calls.tsx';
-import { Contacts } from '~routes/Contacts.tsx';
-import { Home } from '~routes/Home.tsx';
-import { Login } from '~routes/Login.tsx';
+import { ProtectedRoute } from '#components/ProtectedRoute';
+import { Calendar } from '#routes/Calendar';
+import { Calls } from '#routes/Calls';
+import { Contacts } from '#routes/Contacts';
+import { Home } from '#routes/Home';
+import { Login } from '#routes/Login';
 import { Logout } from './routes/Logout';
-import { Messages } from '~routes/Messages.tsx';
-import { Root } from '~routes/Root.tsx';
-import { Settings } from '~routes/Settings.tsx';
-import { queryClient } from '~utils/queryClient';
+import { Messages } from '#routes/Messages';
+import { Root } from '#routes/Root';
+import { Settings } from '#routes/Settings';
+import { queryClient } from '#utils/queryClient';
 
 // import 'normalize.css';
 import '@mantine/core/styles.css';

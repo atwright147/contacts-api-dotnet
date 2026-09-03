@@ -4,8 +4,8 @@ import type { JSX } from 'react';
 import { Button, Stack, TextInput, Title, Typography } from '@mantine/core';
 import { useNavigate } from 'raviger';
 
-import { postApiAuthLoginMutation } from '~src/client/@tanstack/react-query.gen';
-import { useAuthStore } from '~stores/authStore';
+import { postApiAuthLoginMutation } from '#client/@tanstack/react-query.gen';
+import { useAuthStore } from '#stores/authStore';
 
 type FormValues = {
   email: string;

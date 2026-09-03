@@ -4,7 +4,7 @@ import localizedFormat from "dayjs/plugin/localizedFormat";
 import { Paper, Stack, Title, Typography } from '@mantine/core';
 import { useQuery } from '@tanstack/react-query';
 
-import { getApiContactsBirthdaysOptions } from '~src/client/@tanstack/react-query.gen';
+import { getApiContactsBirthdaysOptions } from '#client/@tanstack/react-query.gen';
 
 dayjs.extend(advancedFormat);
 dayjs.extend(localizedFormat);

@@ -2,9 +2,9 @@ import { useQuery } from '@tanstack/react-query';
 import { Title } from '@mantine/core';
 import { useMemo } from 'react';
 
-import { getApiContactsOptions } from '~src/client/@tanstack/react-query.gen';
-import { useAuthStore } from '~stores/authStore';
-import { DataTable } from '~components/DataTable';
+import { getApiContactsOptions } from '#client/@tanstack/react-query.gen';
+import { useAuthStore } from '#stores/authStore';
+import { DataTable } from '#components/DataTable';
 
 export function Contacts() {
   const token = useAuthStore((s) => s.token);

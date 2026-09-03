@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-import { queryClient } from '~utils/queryClient';
+import { queryClient } from '#utils/queryClient';
 
 interface User {
   id: string;

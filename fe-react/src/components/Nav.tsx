@@ -2,7 +2,7 @@ import { Group, NavLink } from '@mantine/core';
 import { Link as RavigerLink } from 'raviger';
 import type { JSX, ReactNode } from 'react';
 
-import { useAuthStore } from '~stores/authStore';
+import { useAuthStore } from '#stores/authStore';
 
 import IconCalendar from '~icons/lucide/calendar';
 import IconHome from '~icons/lucide/home';
