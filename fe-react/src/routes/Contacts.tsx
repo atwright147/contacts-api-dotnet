@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import { Title } from '@mantine/core';
+import { useMemo } from 'react';
 
 import { getApiContactsOptions } from '~src/client/@tanstack/react-query.gen';
 import { useAuthStore } from '~stores/authStore';
-import { ContactsTable } from '~components/ContactsTable';
 import { DataTable } from '~components/DataTable';
 
 export function Contacts() {
@@ -13,20 +13,25 @@ export function Contacts() {
     enabled: !!token,
   });
 
-  const head = ['head1', 'head2', 'head3'];
-  const body = [
-    { value1: 'item1-1', value2: 'item1-2', value3: 'item1-3' },
-    { value1: 'item2-1', value2: 'item2-2', value3: 'item2-3' },
-    { value1: 'item3-1', value2: 'item3-2', value3: 'item3-3' },
+  const head = [
+    'Name',
+    'Email',
+    'Date of Birth',
+    'Favorite',
   ];
+
+  const body = useMemo(() => data?.map((row) => ({
+    fullName: `${row.firstName} ${row.lastName}`,
+    email: row.email,
+    dateOfBirth: row.dateOfBirth,
+    favorite: row.isFavorite,
+  })), [data]);
 
   return (
     <>
       <Title order={1}>Contacts</Title>
 
-      {!isLoading && !isFetching && !isError && data && <ContactsTable data={data} />}
-
-      <DataTable head={head} body={body} />
+      {!isLoading && !isFetching && !isError && body && <DataTable head={head} body={body} />}
     </>
   );
 }
