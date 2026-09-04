@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace contacts_api.Models
@@ -9,6 +10,7 @@ namespace contacts_api.Models
     public required string LastName { get; set; } = string.Empty;
     public required string Email { get; set; } = string.Empty;
     public DateOnly? DateOfBirth { get; set; }
+    [Required]
     public bool IsFavorite { get; set; } = false;
     [JsonIgnore]
     public int PrimaryAddressId { get; set; }

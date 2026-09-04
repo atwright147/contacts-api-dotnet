@@ -5,6 +5,7 @@ import { useMemo } from 'react';
 import { getApiContactsOptions } from '#client/@tanstack/react-query.gen';
 import { useAuthStore } from '#stores/authStore';
 import { DataTable } from '#components/DataTable';
+import { boolToHuman } from '../utils/boolToHuman';
 
 export function Contacts() {
   const token = useAuthStore((s) => s.token);
@@ -24,8 +25,8 @@ export function Contacts() {
     fullName: `${row.firstName} ${row.lastName}`,
     email: row.email,
     dateOfBirth: row.dateOfBirth,
-    favorite: row.isFavorite,
-  })), [data]);
+    favorite: boolToHuman(row.isFavorite),
+  })) ?? [], [data]);
 
   return (
     <>

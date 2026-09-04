@@ -1,3 +1,4 @@
+using Bogus;
 using contacts_api.Data;
 using contacts_api.Models;
 using Microsoft.EntityFrameworkCore;
@@ -14,141 +15,47 @@ namespace contacts_api.Services
       // Seed data if the table is empty
       if (!await _context.Contacts.AnyAsync())
       {
-        var contacts = new List<Contact>
+        var contactFaker = new Faker<Contact>()
+          .RuleFor(u => u.FirstName, (f) => f.Name.FirstName())
+          .RuleFor(u => u.LastName, (f) => f.Name.LastName())
+          .RuleFor(u => u.Email, (f, u) => f.Internet.Email(u.FirstName, u.LastName))
+          .RuleFor(u => u.DateOfBirth, (f) => DateOnly.FromDateTime(f.Date.Past(80, DateTime.Now.AddYears(-18))))
+          .RuleFor(u => u.IsFavorite, (f) => f.Random.Bool());
+
+        var addressFaker = new Faker<Address>()
+          .RuleFor(a => a.Line1, (f) => f.Address.StreetAddress())
+          .RuleFor(a => a.Line2, (f) => f.Random.Bool() ? f.Address.SecondaryAddress() : null)
+          .RuleFor(a => a.City, (f) => f.Address.City())
+          .RuleFor(a => a.State, (f) => f.Address.State())
+          .RuleFor(a => a.PostalCode, (f) => f.Address.ZipCode())
+          .RuleFor(a => a.Country, (f) => f.Address.Country());
+
+        var phoneNumberFaker = new Faker<PhoneNumber>()
+          .RuleFor(p => p.Number, (f) => f.Phone.PhoneNumber())
+          .RuleFor(p => p.Type, (f) => f.PickRandom("Mobile", "Home", "Work"));
+
+        var random = new Random(SeederRandomSeed);
+
+        // 3. Generate individual items in the loop
+        for (int i = 0; i < 100; i++)
         {
-          new() {
-            FirstName = "John",
-            LastName = "Doe",
-            Email = "john.doe@example.com",
-            DateOfBirth = new DateOnly(2000, 1, 1),
-            Addresses =
-            [
-              new() {
-                Line1 = "123 Main St",
-                City = "Austin",
-                State = "TX",
-                PostalCode = "78701",
-                Country = "USA"
-              }
-            ],
-            PhoneNumbers =
-            [
-              new() {
-                Number = "+1-512-555-0101",
-                Type = "mobile"
-              }
-            ]
-          },
-          new() {
-            FirstName = "Jane",
-            LastName = "Smith",
-            Email = "jane.smith@example.com",
-            Addresses =
-            [
-              new() {
-                Line1 = "456 Oak Ave",
-                Line2 = "Apt 2C",
-                City = "Dallas",
-                State = "TX",
-                PostalCode = "75201",
-                Country = "USA"
-              }
-            ],
-            PhoneNumbers =
-            [
-              new() {
-                Number = "+1-214-555-0102",
-                Type = "home"
-              }
-            ]
-          },
-          new() {
-            FirstName = "Bob",
-            LastName = "Johnson",
-            Email = "bob.johnson@example.com",
-            Addresses =
-            [
-              new() {
-                Line1 = "789 Pine Rd",
-                City = "Houston",
-                State = "TX",
-                PostalCode = "77002",
-                Country = "USA"
-              }
-            ],
-            PhoneNumbers =
-            [
-              new() {
-                Number = "+1-713-555-0103",
-                Type = "work"
-              }
-            ]
-          },
-          new() {
-            FirstName = "Alice",
-            LastName = "Williams",
-            Email = "alice.williams@example.com",
-            Addresses =
-            [
-              new() {
-                Line1 = "321 Cedar Blvd",
-                City = "San Antonio",
-                State = "TX",
-                PostalCode = "78205",
-                Country = "USA"
-              }
-            ],
-            PhoneNumbers =
-            [
-              new() {
-                Number = "+1-210-555-0104",
-                Type = "mobile"
-              }
-            ]
-          },
-          new() {
-            FirstName = "Charlie",
-            LastName = "Brown",
-            Email = "charlie.brown@example.com",
-            Addresses =
-            [
-              new() {
-                Line1 = "654 Birch Ln",
-                City = "Fort Worth",
-                State = "TX",
-                PostalCode = "76102",
-                Country = "USA"
-              }
-            ],
-            PhoneNumbers =
-            [
-              new() {
-                Number = "+1-817-555-0105",
-                Type = "home"
-              }
-            ]
-          }
-        };
+          Contact fakeContact = contactFaker.Generate();
 
-        // Mark a random subset as favorites, but never all or none.
-        if (contacts.Count > 1)
-        {
-          var random = new Random(SeederRandomSeed);
-          var favoriteCount = random.Next(1, contacts.Count);
-          var shuffledContacts = contacts.ToList();
-          ShuffleInPlace(shuffledContacts, random);
-
-          var favoriteContacts = shuffledContacts
-            .Take(favoriteCount)
-            .ToHashSet();
-
-          foreach (var contact in contacts)
+          var addresses = addressFaker.Generate(random.Next(1, 4));
+          foreach (var address in addresses)
           {
-            contact.IsFavorite = favoriteContacts.Contains(contact);
+            fakeContact.Addresses.Add(address);
           }
+
+          var phoneNumbers = phoneNumberFaker.Generate(random.Next(1, 4));
+          foreach (var phoneNumber in phoneNumbers)
+          {
+            fakeContact.PhoneNumbers.Add(phoneNumber);
+          }
+
+          _context.Contacts.Add(fakeContact);
         }
 
-        await _context.Contacts.AddRangeAsync(contacts);
         await _context.SaveChangesAsync();
       }
 
@@ -191,15 +98,6 @@ namespace contacts_api.Services
       if (hasChanges)
       {
         await _context.SaveChangesAsync();
-      }
-    }
-
-    private static void ShuffleInPlace(List<Contact> items, Random random)
-    {
-      for (var i = items.Count - 1; i > 0; i--)
-      {
-        var j = random.Next(i + 1);
-        (items[i], items[j]) = (items[j], items[i]);
       }
     }
   }

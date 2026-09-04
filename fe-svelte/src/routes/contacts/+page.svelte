@@ -24,7 +24,7 @@
 			{ field: 'lastName' },
 			{ field: 'email' },
 			{ field: 'dateOfBirth' },
-			{ field: 'isFavourite' },
+			{ field: 'isFavorite' },
 			{ field: 'actions', cellRenderer: makeSvelteCellRenderer(EditButtonCell) },
 		],
 		loadThemeGoogleFonts: true,

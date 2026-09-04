@@ -29,7 +29,7 @@ export type Contact = {
     lastName: string | null;
     email: string | null;
     dateOfBirth?: string | null;
-    isFavorite?: boolean;
+    isFavorite: boolean;
 };
 
 export type ContactWithFullName = {
@@ -38,7 +38,7 @@ export type ContactWithFullName = {
     lastName: string | null;
     email: string | null;
     dateOfBirth?: string | null;
-    isFavorite?: boolean;
+    isFavorite: boolean;
     fullName?: string | null;
     primaryAddressId?: number;
     primaryPhoneNumberId?: number;
@@ -66,7 +66,7 @@ export type RegisterRequest = {
 };
 
 export type UpdateFavoriteDto = {
-    isFavorite?: boolean;
+    isFavorite: boolean;
 };
 
 export type PostApiAuthRegisterData = {

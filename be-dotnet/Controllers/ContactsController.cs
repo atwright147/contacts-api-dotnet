@@ -3,6 +3,7 @@ using contacts_api.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace contacts_api.Controllers
 {
@@ -88,7 +89,7 @@ namespace contacts_api.Controllers
         .ToList();
     }
 
-    public record UpdateFavoriteDto(bool IsFavorite);
+    public record UpdateFavoriteDto([property: Required] bool IsFavorite);
 
     [HttpPatch("{id}/favorite")]
     public async Task<IActionResult> PatchContactFavorite(int id, UpdateFavoriteDto dto)
