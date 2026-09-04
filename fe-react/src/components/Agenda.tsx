@@ -22,15 +22,17 @@ export const Agenda = () => {
 
           return (
             <Paper component="section" key={contact.id}>
-              <Title order={2}>{date.format('MMMM')}</Title>
+              <Stack>
+                <Title order={2}>{date.format('MMMM')}</Title>
 
-              <Typography>
-                {date.format('L')}
-              </Typography>
+                <Typography>
+                  {date.format('L')}
+                </Typography>
 
-              <Typography>
-                {contact.firstName} {contact.lastName}
-              </Typography>
+                <Typography>
+                  {contact.firstName} {contact.lastName}
+                </Typography>
+              </Stack>
 
               {/* <Typography>{contact.emails?.[0].email}</Typography> */}
             </Paper>

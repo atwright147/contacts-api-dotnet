@@ -1,4 +1,4 @@
-import { AppShell, Burger } from '@mantine/core';
+import { AppShell, Burger, Stack } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import type { JSX, ReactNode } from 'react';
 
@@ -26,7 +26,9 @@ export const Root = ({ children }: { children: ReactNode }): JSX.Element => {
         <Nav />
       </AppShell.Navbar>
 
-      <AppShell.Main>{children}</AppShell.Main>
+      <AppShell.Main>
+        <Stack gap={5}>{children}</Stack>
+      </AppShell.Main>
     </AppShell>
   );
 };

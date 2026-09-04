@@ -1,4 +1,4 @@
-import { Title, Typography } from '@mantine/core';
+import { Stack, Title } from '@mantine/core';
 import { useQuery } from '@tanstack/react-query';
 
 import { Agenda } from '#components/Agenda';
@@ -22,13 +22,13 @@ export function Home() {
     <>
       <Title order={1}>Home</Title>
 
-      <div>
+      <Stack gap={10}>
         <Agenda />
 
         <Title order={2}>Favourite Contacts</Title>
 
         <DataTable head={head} body={body} />
-      </div>
+      </Stack>
     </>
   );
 }
