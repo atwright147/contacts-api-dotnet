@@ -1,36 +1,22 @@
 import { Title, Typography } from '@mantine/core';
+import { useQuery } from '@tanstack/react-query';
 
-import { Agenda } from '../components/Agenda';
-import { DataTable } from '../components/DataTable';
+import { Agenda } from '#components/Agenda';
+import { DataTable } from '#components/DataTable';
+import { getApiContactsFavoritesOptions } from '#client/@tanstack/react-query.gen';
+import { useMemo } from 'react';
 
 export function Home() {
-  const head = [
-      'id',
-      'firstName',
-      'lastName',
-      'email',
-    ];
+  const { data } = useQuery(getApiContactsFavoritesOptions());
 
-  const body = [
-    {
-      id: 1,
-      firstName: 'Andy',
-      lastName: 'Wright',
-      email: 'andy@example.com',
-    },
-    {
-      id: 2,
-      firstName: 'Beth',
-      lastName: 'Michon',
-      email: 'beth@example.com',
-    },
-    {
-      id: 3,
-      firstName: 'Sam',
-      lastName: 'Wright',
-      email: 'sam@example.com',
-    },
-  ];
+  const body = useMemo(() => {
+    return data?.map((row) => ({
+      fullName: `${row.firstName} ${row.lastName}`,
+      email: row.email,
+    })) ?? [];
+  }, [data]);
+
+  const head = ['Name', 'Email'];
 
   return (
     <>
@@ -40,8 +26,6 @@ export function Home() {
         <Agenda />
 
         <Title order={2}>Favourite Contacts</Title>
-
-        <Typography>// ContactGrid</Typography>
 
         <DataTable head={head} body={body} />
       </div>
